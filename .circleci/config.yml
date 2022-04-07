@@ -1,8 +1,8 @@
-version: 2.1
 jobs:
   build:
+    # pre-built images: https://circleci.com/docs/2.0/circleci-images/
     docker:
-      - image: alpine:3.15
+      - image: cimg/node:17.2-browsers
     steps:
       - checkout
       - run:
@@ -14,4 +14,8 @@ jobs:
           name: The Second Step
           command: |
             ls -al
-            echo '^^^The files in your repo^^^'
+            echo '^^^That should look familiar^^^'
+      - run:
+          name: Running the Node Container
+          command: |
+            node -v
